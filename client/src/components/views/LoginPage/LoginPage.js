@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import {useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {loginUser} from '../../../_actions/user_action'
+import Auth from '../../../hoc/auth'
+
 
 function LoginPage(props) {
   let navigate = useNavigate();
@@ -51,7 +53,7 @@ function LoginPage(props) {
         <input type = "password" value={Password} onChange={onPasswordHandler}/>
 
         <br/>
-        <button>
+        <button type = "submit">
           login
         </button>
       </form>
@@ -59,4 +61,5 @@ function LoginPage(props) {
   )
 }
 
-export default LoginPage
+// export default Auth(LoginPage,false)
+export default LoginPage;
