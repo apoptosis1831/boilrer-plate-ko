@@ -45,7 +45,7 @@ function RegisterPage() {
 
     dispatch(registerUser(body))
     .then(response=>{
-      if(response.payload.success){
+      if(response.payload.success){ // register 성공하면 => loginPage로 보내준다
         navigate('/login')
       } else{
         alert("Failed to sign up");

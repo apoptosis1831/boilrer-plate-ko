@@ -23,13 +23,24 @@ function LandingPage() {
     })
   }
 
+  const onLoginClickHandler = () =>{
+    navigate('/login')
+  }
+
   return (
     <div style = {{display:'flex', justifyContent : 'center', alignItems: 'center', width:'100%', height:'100vh'}}>
+      <form style ={{display: 'flex', flexDirection: 'column'}} >
+
       <h2>시작 페이지</h2>
+      <button onClick={onLoginClickHandler}>
+        로그인
+      </button>
 
       <button onClick={onClickHandler}>
         로그아웃
       </button>
+      </form>
+
       </div>
   )
 }

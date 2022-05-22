@@ -10,12 +10,12 @@ function LoginPage(props) {
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [Email, setEmail] = useState("")
+  const [Email, setEmail] = useState("") // 안에서 데이터 변경할때 state필요  , 처음 값은 빈칸으로 "" 지정
   const [Password, setPassword] = useState("")
 
   const onEmailHandler = (event) => {
     setEmail(event.currentTarget.value)
-  }
+  } // setEmail 이용해서 state 바궈준다
   const onPasswordHandler = (event)=>{
     setPassword(event.currentTarget.value)
   }
@@ -33,7 +33,7 @@ function LoginPage(props) {
     .then(response=>{
       if(response.payload.loginSuccess){
         //props.history.push('/')
-        navigate('/')
+        navigate('/') // landingPage로 페이지 이동
       } else{
         alert('Error')
       }

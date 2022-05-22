@@ -2,7 +2,7 @@ import {
     LOGIN_USER, REGISTER_USER, AUTH_USER
 } from '../_actions/types'
 
-export default function (state = {}, action) {
+export default function (state = {}, action) { // state가 previosState
     switch (action.type) {
         case LOGIN_USER:
             return { ...state, loginSuccess: action.payload }
