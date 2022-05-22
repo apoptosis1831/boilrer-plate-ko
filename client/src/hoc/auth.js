@@ -20,14 +20,17 @@ export default function(SpecificComponent, option, adminRoute= null){
             dispatch(auth()).then(response=>{
                 console.log(response)
 
+                // 로그인 하지 않은 상태
                 if(!response.payload.isAuth){
-                    if(option){
+                    if(option){ // 로그인한 유저만 출입 가능 페이지
                         navigate('/login');
                     }
                 } else{
+                    // 로그인한 상태
                     if(adminRoute && !response.payload.isAdmin){
+                        // isAdmin FALSE 일때
                         navigate('/');
-                    } else{
+                    } else{ // 로그인한 유저가 출입 불가능한 페이지(로그인, Register) 들어가려고 할때
                         if(option===false){
                             navigate('/');
                         }

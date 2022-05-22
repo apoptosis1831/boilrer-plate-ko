@@ -74,11 +74,11 @@ app.post('/api/users/login', (req,res)=>{
         })
 
     })
+})
     
 
     app.get('/api/users/auth', auth, (req,res)=>{
         // 여기까지 미들웨어를 통과해 왔다는 얘기는 authentication 이 true라는 말
-
         res.status(200).json({
             _id : req.user._id,
             isAdmin : req.user.role === 0 ? false : true,
@@ -89,9 +89,7 @@ app.post('/api/users/login', (req,res)=>{
             lastname : req.user.lastname,
             role : req.user.role,
             image : req.user.image
-
         })
-
     })
     
     app.get('/api/users/logout', auth, (req,res)=>{
@@ -103,9 +101,6 @@ app.post('/api/users/login', (req,res)=>{
                     success : true
                 })
             })
-    })
-
-    
-})
+    });
 
 app.listen(port, ()=>console.log(`Example app listening on port ${port}!`)) // app이 port에 listen을 하면 console.log 출력
